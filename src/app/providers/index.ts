@@ -14,6 +14,6 @@ const withProviders = ({
   withStoreConfig,
   withRouterConfig
 }: WithProvidersConfig) =>
-  compose(withStore(withStoreConfig), withRouter(withRouterConfig))
+  compose(withRouter(withRouterConfig), withStore(withStoreConfig))
 
 export { withProviders }

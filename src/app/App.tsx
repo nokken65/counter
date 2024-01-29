@@ -7,6 +7,6 @@ import { withProviders } from './providers'
 const App = withProviders({
   withStoreConfig: { store },
   withRouterConfig: { router }
-})()
+})
 
 export { App }
