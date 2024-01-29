@@ -1,0 +1,13 @@
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+  flex-basis: 100%;
+}
+
+.display_max {
+  color: red;
+}
