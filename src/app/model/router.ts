@@ -1,7 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 
 import { routesObj } from '@/pages/routing'
 
-const router = createBrowserRouter(routesObj, { basename: '/counter' })
+const router = createHashRouter(routesObj, { basename: '/counter' })
 
 export { router }
