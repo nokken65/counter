@@ -1,6 +1,6 @@
 const paths = {
   index: '/',
-  counter: '/counter',
+  counter: '/home',
   settings: '/settings',
   notFound: '/404',
   noMatch: '/*'
