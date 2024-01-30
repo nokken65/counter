@@ -2,6 +2,6 @@ import { createHashRouter } from 'react-router-dom'
 
 import { routesObj } from '@/pages/routing'
 
-const router = createHashRouter(routesObj, { basename: '/counter' })
+const router = createHashRouter(routesObj)
 
 export { router }
