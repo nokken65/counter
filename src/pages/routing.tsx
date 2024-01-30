@@ -14,10 +14,10 @@ const routesObj: RouteObject[] = [
         loader: () => redirect(paths.counter)
       },
       { path: paths.counter, lazy: () => import('./Counter') },
-      { path: paths.settings, lazy: () => import('./Settings') },
-      { path: paths.notFound, lazy: () => import('./NotFound') }
+      { path: paths.settings, lazy: () => import('./Settings') }
     ]
   },
+  { path: paths.notFound, lazy: () => import('./NotFound') },
   {
     path: paths.noMatch,
     loader: () => redirect(paths.index)
