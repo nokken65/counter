@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 
 import { routesObj } from '@/pages/routing'
 
