@@ -5,7 +5,7 @@ import sassDts from 'vite-plugin-sass-dts'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-  base: '/counter/',
+  base: '/counter/#',
   plugins: [react(), sassDts(), tsconfigPaths()],
   server: { port: 3000 },
   resolve: {

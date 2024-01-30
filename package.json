@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "homepage": "https://nokken65.github.io/counter",
+  "homepage": "https://nokken65.github.io/counter/#",
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
     "clsx": "^2.1.0",
