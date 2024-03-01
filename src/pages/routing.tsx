@@ -11,10 +11,6 @@ const routesObj: RouteObject[] = [
     children: [
       {
         index: true,
-        loader: () => redirect(paths.counter)
-      },
-      {
-        path: paths.counter,
         lazy: () => import('./Counter')
       },
       { path: paths.settings, lazy: () => import('./Settings') }
