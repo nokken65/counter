@@ -17,10 +17,6 @@ const routesObj: RouteObject[] = [
         loader: () => redirect(paths.index)
       }
     ]
-  },
-  {
-    path: paths.index,
-    element: <DefaultLayout />
   }
 ]
 

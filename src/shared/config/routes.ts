@@ -1,5 +1,5 @@
 const paths = {
-  index: import.meta.env.DEV ? '/' : '/counter',
+  index: '/',
   settings: 'settings',
   notFound: '404',
   noMatch: '*'
