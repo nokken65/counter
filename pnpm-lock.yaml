@@ -11,6 +11,9 @@ dependencies:
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
+  ramda:
+    specifier: ^0.29.1
+    version: 0.29.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -27,7 +30,7 @@ dependencies:
 devDependencies:
   '@nokken65/prettier-config':
     specifier: ^1.0.1
-    version: 1.0.1(@ianvs/prettier-plugin-sort-imports@4.1.1)(prettier@3.2.5)
+    version: 1.0.1(@ianvs/prettier-plugin-sort-imports@4.1.1)(prettier@3.1.0)
   '@nokken65/ts-config':
     specifier: ^1.0.2
     version: 1.0.2
@@ -40,6 +43,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.11.24
     version: 20.11.24
+  '@types/ramda':
+    specifier: ^0.29.10
+    version: 0.29.10
   '@types/react':
     specifier: ^18.2.61
     version: 18.2.61
@@ -66,7 +72,7 @@ devDependencies:
     version: 5.1.4(@types/node@20.11.24)(lightningcss@1.24.0)(sass@1.71.1)
   vite-plugin-sass-dts:
     specifier: ^1.3.17
-    version: 1.3.17(postcss@8.4.35)(prettier@3.2.5)(sass@1.71.1)(vite@5.1.4)
+    version: 1.3.17(postcss@8.4.35)(prettier@3.1.0)(sass@1.71.1)(vite@5.1.4)
   vite-tsconfig-paths:
     specifier: ^4.3.1
     version: 4.3.1(typescript@5.3.3)(vite@5.1.4)
@@ -497,7 +503,7 @@ packages:
     dev: true
     optional: true
 
-  /@ianvs/prettier-plugin-sort-imports@4.1.1(prettier@3.2.5):
+  /@ianvs/prettier-plugin-sort-imports@4.1.1(prettier@3.1.0):
     resolution: {integrity: sha512-kJhXq63ngpTQ2dxgf5GasbPJWsJA3LgoOdd7WGhpUSzLgLgI4IsIzYkbJf9kmpOHe7Vdm/o3PcRA3jmizXUuAQ==}
     peerDependencies:
       '@vue/compiler-sfc': '>=3.0.0'
@@ -511,7 +517,7 @@ packages:
       '@babel/parser': 7.24.0
       '@babel/traverse': 7.24.0
       '@babel/types': 7.24.0
-      prettier: 3.2.5
+      prettier: 3.1.0
       semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
@@ -559,14 +565,14 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@nokken65/prettier-config@1.0.1(@ianvs/prettier-plugin-sort-imports@4.1.1)(prettier@3.2.5):
+  /@nokken65/prettier-config@1.0.1(@ianvs/prettier-plugin-sort-imports@4.1.1)(prettier@3.1.0):
     resolution: {integrity: sha512-HgJm8UoF3+lOilDpLhVFjaq9ITHIakr2Mq203ANfdW4+9T2FU6VA39QHmgKbopDkUC23zL3hgXR/dHsByNNAPw==}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': 4.1.1
       prettier: 3.1.0
     dependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.1.1(prettier@3.2.5)
-      prettier: 3.2.5
+      '@ianvs/prettier-plugin-sort-imports': 4.1.1(prettier@3.1.0)
+      prettier: 3.1.0
     dev: true
 
   /@nokken65/ts-config@1.0.2:
@@ -908,6 +914,12 @@ packages:
 
   /@types/prop-types@15.7.11:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
+
+  /@types/ramda@0.29.10:
+    resolution: {integrity: sha512-0BzWVKtSEtignlk+XBuK88Il5wzQwbRVfEkzE8iKm02NYHMGQ/9ffB05M+zXhTCqo50DOIAT9pNSJsjFMMG4rQ==}
+    dependencies:
+      types-ramda: 0.29.8
+    dev: true
 
   /@types/react-dom@18.2.19:
     resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
@@ -2270,8 +2282,8 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+  /prettier@3.1.0:
+    resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -2306,6 +2318,10 @@ packages:
   /querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
     dev: true
+
+  /ramda@0.29.1:
+    resolution: {integrity: sha512-OfxIeWzd4xdUNxlWhgFazxsA/nl3mS4/jGZI5n00uWOoSSFRhC1b6gl6xvmzUamgmqELraWp0J/qqVlXYPDPyA==}
+    dev: false
 
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -2656,6 +2672,10 @@ packages:
       punycode: 2.3.1
     dev: true
 
+  /ts-toolbelt@9.6.0:
+    resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
+    dev: true
+
   /tsconfck@3.0.1(typescript@5.3.3):
     resolution: {integrity: sha512-7ppiBlF3UEddCLeI1JRx5m2Ryq+xk4JrZuq4EuYXykipebaq1dV0Fhgr1hb7CkmHt32QSgOZlcqVLEtHBG4/mg==}
     engines: {node: ^18 || >=20}
@@ -2672,6 +2692,12 @@ packages:
   /type-detect@4.0.8:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
+    dev: true
+
+  /types-ramda@0.29.8:
+    resolution: {integrity: sha512-+RTOlcwl1hEdNV1xfug3ofG6rny0hqQsFuBmS88vD4Lrh8Iys14IPlUH9QaGjCY46iCZgEDuCTLMLH/pOOsGKg==}
+    dependencies:
+      ts-toolbelt: 9.6.0
     dev: true
 
   /typescript@5.3.3:
@@ -2749,7 +2775,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-sass-dts@1.3.17(postcss@8.4.35)(prettier@3.2.5)(sass@1.71.1)(vite@5.1.4):
+  /vite-plugin-sass-dts@1.3.17(postcss@8.4.35)(prettier@3.1.0)(sass@1.71.1)(vite@5.1.4):
     resolution: {integrity: sha512-1YOEaDblFafFUhqOWdCBkJaJjBA7XPcX+Y8pFKFbn4BuNO5M57snN2A4w1DkA8pF6gL/QSvSpQfswHBDDC2fjQ==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -2760,7 +2786,7 @@ packages:
     dependencies:
       postcss: 8.4.35
       postcss-js: 4.0.1(postcss@8.4.35)
-      prettier: 3.2.5
+      prettier: 3.1.0
       sass: 1.71.1
       vite: 5.1.4(@types/node@20.11.24)(lightningcss@1.24.0)(sass@1.71.1)
     dev: true
