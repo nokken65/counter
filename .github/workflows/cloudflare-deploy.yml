@@ -75,3 +75,8 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           projectName: counter
           directory: dist
+
+      - name: Set website url to repo description
+        run: gh repo edit --homepage "$URL"
+        env:
+          URL: ${{needs.build.outputs.url}}
