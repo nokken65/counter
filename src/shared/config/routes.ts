@@ -1,9 +1,9 @@
 const paths = {
   index: '/',
-  counter: '/home',
-  settings: '/settings',
+  counter: 'counter',
+  settings: 'counter/settings',
   notFound: '/404',
   noMatch: '/*'
-}
+} as const
 
 export { paths }

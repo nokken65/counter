@@ -1,4 +1,4 @@
-import { compose } from '@reduxjs/toolkit'
+import { compose } from 'ramda'
 
 import { withRouter } from './withRouter'
 import { withStore } from './withStore'

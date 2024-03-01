@@ -1,12 +1,17 @@
-import './App.css'
-
 import { router } from './model/router'
 import { store } from './model/store'
-import { withProviders } from './providers'
 
-const App = withProviders({
-  withStoreConfig: { store },
-  withRouterConfig: { router }
-})
+import './App.css'
+
+import { Provider } from 'react-redux'
+import { RouterProvider } from 'react-router-dom'
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  )
+}
 
 export { App }

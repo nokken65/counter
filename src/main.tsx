@@ -7,4 +7,4 @@ const container = createElementAndAppendToDOM('app-root')
 
 const root = createRoot(container)
 
-root.render(App(() => null))
+root.render(<App />)
