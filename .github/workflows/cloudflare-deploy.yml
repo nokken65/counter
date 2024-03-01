@@ -69,6 +69,7 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@1
+        id: cloudflare_deploy
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -81,4 +82,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          URL: ${{needs.build.outputs.url}}
+          URL: ${{steps.cloudflare_deploy.outputs.url}}
