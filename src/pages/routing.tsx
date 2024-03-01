@@ -6,25 +6,21 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 
 const routesObj: RouteObject[] = [
   {
-    path: paths.counter,
-    element: <DefaultLayout />,
-    lazy: () => import('./Counter')
-  },
-  {
     path: paths.index,
     element: <DefaultLayout />,
     children: [
+      { index: true, lazy: () => import('./Counter') },
+      { path: paths.settings, lazy: () => import('./Settings') },
+      { path: paths.notFound, lazy: () => import('./NotFound') },
       {
-        index: true,
-        lazy: () => import('./Counter')
-      },
-      { path: paths.settings, lazy: () => import('./Settings') }
+        path: paths.noMatch,
+        loader: () => redirect(paths.index)
+      }
     ]
   },
-  { path: paths.notFound, lazy: () => import('./NotFound') },
   {
-    path: paths.noMatch,
-    loader: () => redirect(paths.counter)
+    path: paths.index,
+    element: <DefaultLayout />
   }
 ]
 
