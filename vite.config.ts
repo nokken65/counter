@@ -7,6 +7,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [react(), sassDts(), tsconfigPaths()],
   server: { port: 3000 },
+  preview: { port: 3000 },
   resolve: {
     alias: [{ find: '@', replacement: resolve(__dirname, 'src') }]
   },
