@@ -4,10 +4,6 @@ on:
   push:
     branches: [master]
 
-permissions:
-  contents: read
-  deployments: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -46,16 +42,6 @@ jobs:
       - name: build app
         run: pnpm build
 
-  deploy:
-    needs: build
-
-    permissions:
-      contents: read
-      deployments: write
-
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@1
         with:
