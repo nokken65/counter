@@ -4,7 +4,7 @@ import { App } from './App'
 
 describe('Render App', () => {
   test('render app', () => {
-    render(App(() => null))
+    render(<App />)
     expect(1).toBe(1)
   })
 })
