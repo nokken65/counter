@@ -39,7 +39,7 @@ const CounterActions = ({
       </Button>
       <Button
         className={styles['actions_button']}
-        onClick={() => navigate('/counter/settings')}
+        onClick={() => navigate('/settings')}
       >
         set
       </Button>
