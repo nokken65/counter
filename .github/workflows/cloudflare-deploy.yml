@@ -77,7 +77,7 @@ jobs:
           directory: dist
 
       - name: Set website url to repo description
-        run: gh repo edit --homepage "$URL"
+        run: gh repo edit "$GH_REPO" --homepage "$URL"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
