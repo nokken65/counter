@@ -1,4 +1,4 @@
-import { Counter } from '@/widgets/Counter'
+import { Counter } from '@/entities/counter'
 
 const Component = () => {
   return <Counter />

@@ -1,7 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
-const reducer = combineReducers({})
+import { counterModel } from '@/entities/counter'
+
+const reducer = combineReducers({
+  [counterModel.name]: counterModel.reducer
+})
 
 const store = configureStore({ reducer })
 
