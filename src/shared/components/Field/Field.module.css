@@ -1,0 +1,50 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 3fr;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.label {
+  font-size: 1.2rem;
+}
+
+.input {
+  min-width: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.4rem;
+  gap: 0.2rem;
+  border-radius: 0.6rem;
+  color: #000;
+  background-color: #fff;
+
+  &:focus-within {
+    outline-offset: 0.2rem;
+    outline: 2px solid;
+    outline-color: #ffd561;
+  }
+}
+
+.input_error {
+  outline-offset: 0.2rem;
+  outline: 2px solid;
+  outline-color: #ff6161;
+
+  &:focus-within {
+    outline-color: #ff6161;
+  }
+}
+
+.error_message {
+  font-size: 0.8rem;
+  color: #ff6161;
+}

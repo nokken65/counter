@@ -1,5 +1,5 @@
 const Component = () => {
-  return <div>Error</div>
+  return <div>{'Not found :('}</div>
 }
 
 export { Component }

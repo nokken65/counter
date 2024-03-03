@@ -4,3 +4,9 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}

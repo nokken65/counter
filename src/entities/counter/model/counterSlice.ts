@@ -1,21 +1,12 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit'
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import type { lsApi } from '@/shared/api'
 
 import { RootState } from '@/app/model/store'
 
-type Settings = {
-  min: number
-  max: number
-}
-
-type Counter = {
-  current: number
-  settings: Settings
-}
-
-const initialState: Counter = {
+const initialState: lsApi.Counter = {
   current: 0,
   settings: {
-    min: 0,
+    start: 0,
     max: 5
   }
 }
@@ -29,13 +20,22 @@ const counterSlice = createSlice({
         state.current += 1
       }
     },
-    decrement: (state) => {
-      if (state.current > state.settings.min) {
-        state.current -= 1
-      }
-    },
     reset: (state) => {
       state.current = 0
+    },
+    updateSettings: (
+      state,
+      action: PayloadAction<Partial<lsApi.CounterSettings>>
+    ) => {
+      state.settings = { ...state.settings, ...action.payload }
+
+      if (action.payload.start && state.current < action.payload.start) {
+        state.current = action.payload.start
+      }
+
+      if (action.payload.max && state.current > action.payload.max) {
+        state.current = action.payload.max
+      }
     }
   }
 })
@@ -47,9 +47,11 @@ const selectCurrentCount = createSelector(
   (counter) => counter.current
 )
 
-const selectIsMin = createSelector(
+const selectSettings = createSelector(selectSelf, (counter) => counter.settings)
+
+const selectIsStart = createSelector(
   selectSelf,
-  (counter) => counter.current === counter.settings.min
+  (counter) => counter.current === counter.settings.start
 )
 
 const selectIsMax = createSelector(
@@ -59,7 +61,8 @@ const selectIsMax = createSelector(
 
 export const selectors = {
   selectCurrentCount,
-  selectIsMin,
+  selectSettings,
+  selectIsStart,
   selectIsMax
 }
 

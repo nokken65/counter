@@ -14,4 +14,14 @@
     cursor: default;
     pointer-events: none;
   }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline-offset: 0.2rem;
+    outline: 2px solid;
+    outline-color: #ffd561;
+  }
 }

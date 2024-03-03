@@ -1,13 +1,7 @@
-import { Link } from 'react-router-dom'
-
-import { paths } from '@/shared/config/routes'
+import { EditCounterSettingsForm } from '@/features/edit-counter-settings'
 
 const Component = () => {
-  return (
-    <div>
-      <Link to={paths.index}>back</Link>
-    </div>
-  )
+  return <EditCounterSettingsForm />
 }
 
 export { Component }

@@ -7,10 +7,10 @@ import styles from './CounterDisplay.module.css'
 
 const CounterDisplay = () => {
   const currentCount = useAppSelector(selectors.selectCurrentCount)
-  const isMaxCount = useAppSelector(selectors.selectIsMax)
+  const isCountMax = useAppSelector(selectors.selectIsMax)
 
   return (
-    <div className={clsx(styles.display, isMaxCount && styles['display_max'])}>
+    <div className={clsx(styles.display, isCountMax && styles['display_max'])}>
       {currentCount}
     </div>
   )
