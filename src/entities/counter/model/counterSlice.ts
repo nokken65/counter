@@ -1,9 +1,14 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { lsApi } from '@/shared/api'
+import { equals } from 'ramda'
 
-import { RootState } from '@/app/model/store'
+import { AppDispatch, RootState } from '@/app/model/store'
+import { listenerMiddleware } from '@/shared/middlewares/listener'
 
-const initialState: lsApi.Counter = {
+import { Counter, CounterSettings } from './models'
+
+const initialState: Counter = JSON.parse(
+  localStorage.getItem('counter') ?? 'null'
+) ?? {
   current: 0,
   settings: {
     start: 0,
@@ -25,7 +30,7 @@ const counterSlice = createSlice({
     },
     updateSettings: (
       state,
-      action: PayloadAction<Partial<lsApi.CounterSettings>>
+      action: PayloadAction<Partial<CounterSettings>>
     ) => {
       state.settings = { ...state.settings, ...action.payload }
 
@@ -58,6 +63,19 @@ const selectIsMax = createSelector(
   selectSelf,
   (counter) => counter.current === counter.settings.max
 )
+
+const startAppListening = listenerMiddleware.startListening.withTypes<
+  RootState,
+  AppDispatch
+>()
+
+startAppListening({
+  predicate: (_action, currentState, previousState) =>
+    !equals(currentState.counter, previousState.counter),
+  effect: (_action, api) => {
+    localStorage.setItem('counter', JSON.stringify(api.getState().counter))
+  }
+})
 
 export const selectors = {
   selectCurrentCount,

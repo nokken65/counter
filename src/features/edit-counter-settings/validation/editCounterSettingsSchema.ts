@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import type { lsApi } from '@/shared/api'
+import type { CounterSettings } from '@/entities/counter'
 
-const editCounterSettingsSchema: z.ZodType<lsApi.CounterSettings> = z
+const editCounterSettingsSchema: z.ZodType<CounterSettings> = z
   .object({
     start: z.number().min(0).max(1_000_000),
     max: z.number().min(0).max(1_000_000)
