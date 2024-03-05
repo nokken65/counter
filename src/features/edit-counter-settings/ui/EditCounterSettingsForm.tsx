@@ -2,6 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { equals } from 'ramda'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import type { CounterSettings } from '@/entities/counter'
+import type { SubmitHandler } from 'react-hook-form'
 
 import { useAppDispatch, useAppSelector } from '@/app/model/store'
 import { counterModel } from '@/entities/counter'
@@ -28,14 +30,15 @@ const EditCounterSettingsForm = () => {
     shouldFocusError: true
   })
 
+  const onSubmit: SubmitHandler<CounterSettings> = (data) => {
+    dispatch(counterModel.actions.updateSettings(data))
+  }
+
   return (
     <Form
       methods={methods}
-      onSubmit={() =>
-        methods.handleSubmit((data) => {
-          dispatch(counterModel.actions.updateSettings(data))
-        })
-      }
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      onSubmit={methods.handleSubmit(onSubmit)}
     >
       <Form.Field<EditCounterSettingsValues>
         name="start"
