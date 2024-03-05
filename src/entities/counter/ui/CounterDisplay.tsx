@@ -10,7 +10,7 @@ const CounterDisplay = () => {
   const isCountMax = useAppSelector(selectors.selectIsMax)
 
   return (
-    <div className={clsx(styles.display, isCountMax && styles['display_max'])}>
+    <div className={clsx(styles.display, isCountMax && styles.display_max)}>
       {currentCount}
     </div>
   )

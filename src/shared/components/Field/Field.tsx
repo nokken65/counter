@@ -30,7 +30,7 @@ const Field = React.forwardRef<HTMLInputElement, FieldProps>((props, ref) => {
           className={clsx(
             styles.input,
             classNames?.input,
-            error && styles.input_error
+            error !== undefined && styles.input_error
           )}
           ref={ref}
           id={id}
@@ -38,7 +38,7 @@ const Field = React.forwardRef<HTMLInputElement, FieldProps>((props, ref) => {
           {...rest}
         />
       </label>
-      {isDirty && error && (
+      {isDirty && error !== undefined && (
         <span className={clsx(styles.error_message, classNames?.error_message)}>
           {error}
         </span>

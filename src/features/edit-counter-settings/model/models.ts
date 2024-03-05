@@ -1,6 +1,6 @@
-import { z } from 'zod'
+import type { z } from 'zod'
 
-import { editCounterSettingsSchema } from '../validation'
+import type { editCounterSettingsSchema } from '../validation'
 
 type EditCounterSettingsValues = z.infer<typeof editCounterSettingsSchema>
 

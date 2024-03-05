@@ -1,13 +1,12 @@
 import React from 'react'
-import {
-  Controller,
+import { Controller, useFormContext } from 'react-hook-form'
+import type { FieldProps as FieldViewProps } from '@/shared/components/Field'
+import type {
   ControllerFieldState,
   ControllerRenderProps,
   FieldValues,
-  Path,
-  useFormContext
+  Path
 } from 'react-hook-form'
-import type { FieldProps as FieldViewProps } from '@/shared/components/Field'
 
 import { Field as FieldView } from '@/shared/components/Field'
 
@@ -26,7 +25,7 @@ const Field = <T extends FieldValues>(props: FieldProps<T>) => {
     field: ControllerRenderProps<FieldValues, Path<T>>
     fieldState: ControllerFieldState
   }) => {
-    const value = field.value || (field.value === 0 ? 0 : '')
+    const value = field.value ?? (field.value === 0 ? 0 : '')
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
       event

@@ -3,6 +3,8 @@ import type { RouterProviderProps } from 'react-router-dom'
 
 type WithRouterConfig = RouterProviderProps
 
-const withRouter = (config: WithRouterConfig) => <RouterProvider {...config} />
+const withRouter = (config: WithRouterConfig) => {
+  return <RouterProvider {...config} />
+}
 
 export { type WithRouterConfig, withRouter }

@@ -1,10 +1,11 @@
-import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSelector, createSlice } from '@reduxjs/toolkit'
 import { equals } from 'ramda'
+import type { AppDispatch, RootState } from '@/app/model/store'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
-import { AppDispatch, RootState } from '@/app/model/store'
 import { listenerMiddleware } from '@/shared/middlewares/listener'
 
-import { Counter, CounterSettings } from './models'
+import type { Counter, CounterSettings } from './models'
 
 const initialState: Counter = JSON.parse(
   localStorage.getItem('counter') ?? 'null'
@@ -34,11 +35,17 @@ const counterSlice = createSlice({
     ) => {
       state.settings = { ...state.settings, ...action.payload }
 
-      if (action.payload.start && state.current < action.payload.start) {
+      if (
+        action.payload.start !== undefined &&
+        state.current < action.payload.start
+      ) {
         state.current = action.payload.start
       }
 
-      if (action.payload.max && state.current > action.payload.max) {
+      if (
+        action.payload.max !== undefined &&
+        state.current > action.payload.max
+      ) {
         state.current = action.payload.max
       }
     }

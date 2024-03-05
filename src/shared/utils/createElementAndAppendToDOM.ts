@@ -35,7 +35,9 @@ const createElementAndAppendToDOM = <
     }
 
     if (parentElement === null) {
-      throw new Error(`Parent '${parent}' element is not found.`)
+      throw new Error(
+        `Parent '${JSON.stringify(parent)}' element is not found.`
+      )
     }
 
     parentElement[prepend ? 'prepend' : 'append'](element)

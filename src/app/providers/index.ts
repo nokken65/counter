@@ -13,7 +13,8 @@ type WithProvidersConfig = {
 const withProviders = ({
   withStoreConfig,
   withRouterConfig
-}: WithProvidersConfig) =>
-  compose(withStore(withStoreConfig))(() => withRouter(withRouterConfig))
+}: WithProvidersConfig) => {
+  return compose(withStore(withStoreConfig))(() => withRouter(withRouterConfig))
+}
 
 export { withProviders }

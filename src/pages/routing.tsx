@@ -1,4 +1,5 @@
-import { redirect, RouteObject } from 'react-router-dom'
+import { redirect } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom'
 
 import { paths } from '@/shared/config/routes'
 
@@ -9,9 +10,9 @@ const routesObj: RouteObject[] = [
     path: paths.index,
     element: <DefaultLayout />,
     children: [
-      { index: true, lazy: () => import('./Counter') },
-      { path: paths.settings, lazy: () => import('./Settings') },
-      { path: paths.notFound, lazy: () => import('./NotFound') },
+      { index: true, lazy: async () => await import('./Counter') },
+      { path: paths.settings, lazy: async () => await import('./Settings') },
+      { path: paths.notFound, lazy: async () => await import('./NotFound') },
       {
         path: paths.noMatch,
         loader: () => redirect(paths.index)

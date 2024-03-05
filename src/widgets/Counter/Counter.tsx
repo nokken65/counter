@@ -17,7 +17,13 @@ const Counter = () => {
       <div className={styles.actions}>
         <IncrementCounter />
         <ResetCounter />
-        <Button onClick={() => navigate('/settings')}>settings</Button>
+        <Button
+          onClick={() => {
+            navigate('/settings')
+          }}
+        >
+          settings
+        </Button>
       </div>
     </div>
   )

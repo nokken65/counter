@@ -31,9 +31,11 @@ const EditCounterSettingsForm = () => {
   return (
     <Form
       methods={methods}
-      onSubmit={methods.handleSubmit((data) =>
-        dispatch(counterModel.actions.updateSettings(data))
-      )}
+      onSubmit={() =>
+        methods.handleSubmit((data) => {
+          dispatch(counterModel.actions.updateSettings(data))
+        })
+      }
     >
       <Form.Field<EditCounterSettingsValues>
         name="start"
@@ -48,7 +50,13 @@ const EditCounterSettingsForm = () => {
         label="max"
       />
       <div className={styles.actions}>
-        <Button onClick={() => navigate('/')}>Back</Button>
+        <Button
+          onClick={() => {
+            navigate('/')
+          }}
+        >
+          Back
+        </Button>
         <Button
           disabled={
             !methods.formState.isDirty || methods.formState.isSubmitting
