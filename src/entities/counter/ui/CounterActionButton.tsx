@@ -9,6 +9,7 @@ const CounterActionButton = <C = 'button',>(
   const { children, ...rest } = props
 
   return (
+    // @ts-expect-error ts 5.4.2 error
     <ActionIcon
       radius="xl"
       size="xl"
