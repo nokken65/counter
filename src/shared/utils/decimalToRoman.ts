@@ -17,14 +17,15 @@ const decimalToRoman = (number: number) => {
     return 'Too big'
   }
 
-  const translations = [...Object.entries(TRANSLATIONS.ROMAN)]
+  const translations = [...Object.entries(TRANSLATIONS.ROMAN)].reverse()
   let romanConversion = ''
+
   for (let i = 0; i < translations.length; i++) {
     const [decimal, roman] = translations[i] as [string, string]
 
-    while (number >= +decimal) {
+    while (number >= Number(decimal)) {
       romanConversion += roman
-      number -= +decimal
+      number -= Number(decimal)
     }
   }
   return romanConversion
