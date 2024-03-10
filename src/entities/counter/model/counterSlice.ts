@@ -5,29 +5,28 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 import { listenerMiddleware } from '@/shared/middlewares/listener'
 
+import { COUNTER_DEFAULT } from '../constants/default'
 import type { Counter, CounterSettings } from './models'
 
-const initialState: Counter = JSON.parse(
-  localStorage.getItem('counter') ?? 'null'
-) ?? {
-  current: 0,
-  settings: {
-    start: 0,
-    max: 5
-  }
-}
+const initialState: Counter =
+  JSON.parse(localStorage.getItem('counter') ?? 'null') ?? COUNTER_DEFAULT
 
 const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
+    decrement: (state) => {
+      const prevValue = state.current - state.settings.step
+      state.current =
+        prevValue < state.settings.start ? state.settings.start : prevValue
+    },
     increment: (state) => {
-      if (state.current < state.settings.max) {
-        state.current += 1
-      }
+      const nextValue = state.current + state.settings.step
+      state.current =
+        nextValue > state.settings.max ? state.settings.max : nextValue
     },
     reset: (state) => {
-      state.current = 0
+      state.current = state.settings.start
     },
     updateSettings: (
       state,
@@ -77,8 +76,9 @@ const startAppListening = listenerMiddleware.startListening.withTypes<
 >()
 
 startAppListening({
-  predicate: (_action, currentState, previousState) =>
-    !equals(currentState.counter, previousState.counter),
+  predicate: (_action, currentState, previousState) => {
+    return !equals(currentState.counter, previousState.counter)
+  },
   effect: (_action, api) => {
     localStorage.setItem('counter', JSON.stringify(api.getState().counter))
   }

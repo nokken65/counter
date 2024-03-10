@@ -1,75 +1,73 @@
-import { zodResolver } from '@hookform/resolvers/zod'
+import React from 'react'
+import { Button, NumberInput, Stack } from '@mantine/core'
+import { useForm } from '@mantine/form'
+import { IconAdjustmentsAlt } from '@tabler/icons-react'
+import { zodResolver } from 'mantine-form-zod-resolver'
 import { equals } from 'ramda'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
-import type { CounterSettings } from '@/entities/counter'
-import type { SubmitHandler } from 'react-hook-form'
 
 import { useAppDispatch, useAppSelector } from '@/app/model/store'
 import { counterModel } from '@/entities/counter'
-import { Button } from '@/shared/components/Button'
-import { Form } from '@/shared/libs/forms'
+import { COUNTER_DEFAULT } from '@/entities/counter/constants/default'
 
 import { editCounterSettingsSchema } from '../validation'
-import styles from './EditCounterSettingsForm.module.css'
+import { EditCounterSettingsNumberInput } from './EditCounterSettingsNumberInput'
 import type { EditCounterSettingsValues } from '../model/models'
 
 const EditCounterSettingsForm = () => {
-  const { start, max } = useAppSelector(
+  const { start, max, step } = useAppSelector(
     counterModel.selectors.selectSettings,
     (a, b) => equals(a, b)
   )
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
 
-  const methods = useForm<EditCounterSettingsValues>({
-    defaultValues: { start, max },
-    resolver: zodResolver(editCounterSettingsSchema),
-    mode: 'onSubmit',
-    reValidateMode: 'onSubmit',
-    shouldFocusError: true
+  const form = useForm<EditCounterSettingsValues>({
+    initialValues: {
+      start,
+      max,
+      step
+    },
+    validateInputOnChange: true,
+    validate: zodResolver(editCounterSettingsSchema)
   })
 
-  const onSubmit: SubmitHandler<CounterSettings> = (data) => {
-    dispatch(counterModel.actions.updateSettings(data))
+  React.useEffect(() => {
+    const { hasErrors } = form.validate()
+
+    if (!hasErrors) {
+      dispatch(counterModel.actions.updateSettings(form.values))
+    }
+  }, [form.values])
+
+  const handleReset = () => {
+    form.setValues(COUNTER_DEFAULT.settings)
   }
 
   return (
-    <Form
-      methods={methods}
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      onSubmit={methods.handleSubmit(onSubmit)}
-    >
-      <Form.Field<EditCounterSettingsValues>
-        name="start"
-        type="number"
-        min={0}
-        label="start"
-      />
-      <Form.Field<EditCounterSettingsValues>
-        name="max"
-        type="number"
-        min={0}
-        label="max"
-      />
-      <div className={styles.actions}>
+    <form>
+      <Stack>
+        <EditCounterSettingsNumberInput
+          label="start"
+          {...form.getInputProps('start')}
+        />
+        <EditCounterSettingsNumberInput
+          label="max"
+          {...form.getInputProps('max')}
+        />
+        <EditCounterSettingsNumberInput
+          min={1}
+          label="step"
+          {...form.getInputProps('step')}
+        />
         <Button
-          onClick={() => {
-            navigate('/')
-          }}
+          variant="light"
+          radius="xl"
+          leftSection={<IconAdjustmentsAlt />}
+          onClick={handleReset}
         >
-          Back
+          Reset
         </Button>
-        <Button
-          disabled={
-            !methods.formState.isDirty || methods.formState.isSubmitting
-          }
-          type="submit"
-        >
-          Apply
-        </Button>
-      </div>
-    </Form>
+      </Stack>
+    </form>
   )
 }
 

@@ -1,6 +1,7 @@
 type CounterSettings = {
   start: number
   max: number
+  step: number
 }
 
 type Counter = {

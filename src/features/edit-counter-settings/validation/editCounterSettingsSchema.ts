@@ -3,8 +3,9 @@ import type { CounterSettings } from '@/entities/counter'
 
 const editCounterSettingsSchema: z.ZodType<CounterSettings> = z
   .object({
-    start: z.number().min(0).max(1_000_000),
-    max: z.number().min(0).max(1_000_000)
+    start: z.number().min(0).max(1_000_000).int(),
+    max: z.number().min(0).max(1_000_000).int(),
+    step: z.number().min(1).max(100_000).int()
   })
   .superRefine((values, ctx) => {
     if (values.start >= values.max) {
@@ -15,7 +16,7 @@ const editCounterSettingsSchema: z.ZodType<CounterSettings> = z
       })
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: "Start value can't be more or equal than max",
+        message: "Max value can't be less or equal than start",
         path: ['max']
       })
     }

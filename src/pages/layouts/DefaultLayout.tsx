@@ -1,15 +1,14 @@
 import React from 'react'
+import { Center } from '@mantine/core'
 import { Outlet } from 'react-router-dom'
-
-import styles from './DefaultLayout.module.css'
 
 const DefaultLayout = () => {
   return (
-    <div className={styles.layout}>
+    <Center h="100svh">
       <React.Suspense fallback={'Loading...'}>
         <Outlet />
       </React.Suspense>
-    </div>
+    </Center>
   )
 }
 

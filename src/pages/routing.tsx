@@ -11,7 +11,6 @@ const routesObj: RouteObject[] = [
     element: <DefaultLayout />,
     children: [
       { index: true, lazy: async () => await import('./Counter') },
-      { path: paths.settings, lazy: async () => await import('./Settings') },
       { path: paths.notFound, lazy: async () => await import('./NotFound') },
       {
         path: paths.noMatch,

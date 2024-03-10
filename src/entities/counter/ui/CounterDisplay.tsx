@@ -1,18 +1,22 @@
-import clsx from 'clsx'
+import { Text } from '@mantine/core'
 
 import { useAppSelector } from '@/app/model/store'
 
 import { selectors } from '../model'
-import styles from './CounterDisplay.module.css'
 
 const CounterDisplay = () => {
   const currentCount = useAppSelector(selectors.selectCurrentCount)
   const isCountMax = useAppSelector(selectors.selectIsMax)
 
   return (
-    <div className={clsx(styles.display, isCountMax && styles.display_max)}>
+    <Text
+      fw={700}
+      size="2rem"
+      component="span"
+      c={isCountMax ? 'red' : 'white'}
+    >
       {currentCount}
-    </div>
+    </Text>
   )
 }
 

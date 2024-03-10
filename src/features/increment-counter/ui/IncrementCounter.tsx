@@ -1,6 +1,7 @@
+import { IconPlus } from '@tabler/icons-react'
+
 import { useAppDispatch, useAppSelector } from '@/app/model/store'
-import { counterModel } from '@/entities/counter'
-import { Button } from '@/shared/components/Button'
+import { CounterActionButton, counterModel } from '@/entities/counter'
 
 const IncrementCounter = () => {
   const dispatch = useAppDispatch()
@@ -10,12 +11,12 @@ const IncrementCounter = () => {
     dispatch(counterModel.actions.increment())
 
   return (
-    <Button
+    <CounterActionButton
       disabled={isCountMax}
       onClick={handleIncrementCounter}
     >
-      increment
-    </Button>
+      <IconPlus />
+    </CounterActionButton>
   )
 }
 

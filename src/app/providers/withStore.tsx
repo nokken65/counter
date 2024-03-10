@@ -4,7 +4,7 @@ import type { ProviderProps } from 'react-redux'
 type WithStoreConfig = Omit<ProviderProps, 'children'>
 
 const withStore =
-  (config: WithStoreConfig) => (children: () => React.ReactNode) => {
+  (config: WithStoreConfig) => (children: () => React.ReactNode) => () => {
     return <Provider {...config}>{children()}</Provider>
   }
 
