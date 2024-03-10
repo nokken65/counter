@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, NumberInput, Stack } from '@mantine/core'
+import { Button, Stack } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { IconAdjustmentsAlt } from '@tabler/icons-react'
 import { zodResolver } from 'mantine-form-zod-resolver'
