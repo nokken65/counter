@@ -13,7 +13,11 @@ const CounterDisplay = () => {
       fw={700}
       size="2rem"
       component="span"
-      c={isCountMax ? 'red' : 'white'}
+      style={{
+        color: isCountMax
+          ? 'var(--mantine-color-error)'
+          : 'var(--mantine-color-text)'
+      }}
     >
       {currentCount}
     </Text>
