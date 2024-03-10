@@ -5,7 +5,8 @@ const COUNTER_DEFAULT: Counter = {
   settings: {
     start: 0,
     max: 5,
-    step: 1
+    step: 1,
+    numeralSystem: 'arabic'
   }
 } as const
 

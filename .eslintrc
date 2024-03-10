@@ -23,6 +23,7 @@
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
     "react/prop-types": "off"

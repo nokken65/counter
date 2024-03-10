@@ -23,7 +23,7 @@ const EditCounterSettingsNumberInput = (
           rowGap: '0.2rem',
           columnGap: '0.2rem',
           gridTemplateRows: '1fr auto',
-          gridTemplateColumns: '2rem 10rem',
+          gridTemplateColumns: '3rem 12rem',
           alignItems: 'center'
         },
         error: {

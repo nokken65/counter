@@ -5,7 +5,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 import { listenerMiddleware } from '@/shared/middlewares/listener'
 
-import { COUNTER_DEFAULT } from '../constants/default'
+import { COUNTER_DEFAULT } from '../constants'
 import type { Counter, CounterSettings } from './models'
 
 const initialState: Counter =
